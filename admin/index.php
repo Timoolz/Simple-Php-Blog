@@ -20,6 +20,7 @@
     <script type="text/javascript" src="../js/jquery/jquery.min.js"></script>
     
     <script type="text/javascript" src="../js/general.js"></script>
+
     
     </head>
     
@@ -29,23 +30,32 @@
     
    
 <?php
+   require_once("../functions/generalfunctions01.php");
    session_start();
    if(isset($_SESSION["activeuser"]) && ($_SESSION["activeuser"]!="")){
     
    ?>     
    
-   <!--<div id="navbar" class="navbar-collapse collapse    navbar-right">
-              <span class="navbar-brand " >
-                Welcome <?php echo $_SESSION["activeuser"]; ?>
-              </span>
-              <button id="logout" class=" btn btn-success">Log Out</button>
-            </div>-->
-   
-   <div class="wrapper">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+       <div id="navbar" class="navbar-collapse collapse    navbar-right">
+                  <span class="navbar-brand " >
+                    Welcome <?php echo $_SESSION["activeuser"]; ?>
+                  </span>
+                  <button id="logout" class=" btn btn-success">Log Out</button>
+                </div>
+                </div>
+                </nav>
+       
+       <div class="wrapper">
     
         <!-- Sidebar -->
         <div class="sidebar-wrapper">
             <ul class="sidebar-nav">
+            
+                <li class="sidebar-brand" >
+                    <a href="../index.php">Home page</a>
+                </li>
                 <li class="sidebar-brand <?php 
                 if (isset($_REQUEST['p'])){
                     if ($_REQUEST['p']=='blog'){
@@ -67,7 +77,7 @@
                     }?>
                 ">
                     <a href="?p=news">
-                        Upload Newsletter
+                         Newsletters
                     </a>
                 </li>
                 <li class="sidebar-brand  <?php 
@@ -78,8 +88,9 @@
                     }
                     }?>
                 ">
-                    <a href="?p=seminar">Upload Workshop</a>
+                    <a href="?p=seminar">Workshops</a>
                 </li>
+                
                 
             </ul>
         </div>

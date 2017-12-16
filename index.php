@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="navbar-brand" href="#">Google maps</div>
+          <!--<div class="navbar-brand" href="#">Google maps</div>-->
         </div>
         
         <?php
@@ -47,9 +47,10 @@
         if(isset($_SESSION["activeuser"]) && ($_SESSION["activeuser"]!="")){
         ?>
         <div id="navbar" class="navbar-collapse collapse    navbar-right">
-              <span class="navbar-brand " >
+              <!--<span class="navbar-brand " >
                 Welcome <?php echo $_SESSION["activeuser"]; ?>
-              </span>
+              </span>-->
+                            
               <button id="logout" class=" btn btn-success">Log Out</button>
             </div>
           </div>
@@ -88,6 +89,9 @@
                 <button type="submit" class="btn btn-success">Log in</button>
               </form>
             </div><!--/.navbar-collapse -->
+            
+            
+            <?php   }         ?>
           </div>
           
           
@@ -117,7 +121,7 @@
 
     </body>
           
-        <?php   }   include'footer.php';      ?>
+        <?php    include'footer.php';      ?>
             
  
 </html>

@@ -6,7 +6,7 @@
             $user = $_POST["username"];
             $pass = $_POST["userpass"];
             
-            include_once('../creds/creds.php');
+            require_once('../creds/creds.php');
         
             require_once('../dbconn.php');
             session_start();
