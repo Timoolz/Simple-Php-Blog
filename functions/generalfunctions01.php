@@ -111,6 +111,75 @@ function getcurrentdate(){
     
     
 }
+
+
+function date_convert($datt){
+
+    
+    $ya= substr($datt,0,4);
+    $ma= substr($datt,5,2);
+    $da= substr($datt,8,2);  
+    
+    switch ($ma){
+        case '01':
+            $ma = 'January';
+            break;
+        
+        case '02':
+            $ma = 'February';
+            break;
+            
+        case '03':
+            $ma = 'March';
+            break;
+            
+        case '04':
+            $ma = 'April';
+            break;
+            
+        case '05':
+            $ma = 'May';
+            break;
+            
+        case '06':
+            $ma = 'June';
+            break;
+            
+        case '07':
+            $ma = 'July';
+            break;
+            
+        case '08':
+            $ma = 'August';
+            break;
+            
+        case '09':
+            $ma = 'September';
+            break;
+            
+        case '10':
+            $ma = 'October';
+            break;
+            
+        case '11':
+            $ma = 'November';
+            break;
+            
+        case '12':
+            $ma = 'December';
+            break;
+            
+        default:
+            $ma = 'Weird';
+            
+        
+        
+        
+    }  
+    
+    return $ma.' '.$da.', '.$ya;
+    
+}
 function date_difference($a,$b){
     
     $ya= substr($a,0,4);

@@ -42,7 +42,7 @@ switch ($val_upload){
                                 VALUES (?, ?, ?, ?)";
                         $sth = $dbh->prepare($sql);
                         
-                        $res = $sth->execute(array($val_user,$val_title,date('y-m-d'),$val_content ));
+                        $res = $sth->execute(array($val_user,$val_title,getcurrentdate(),$val_content ));
                         if($res){
                             $dbh->commit();
                             $dbh = null;
@@ -119,7 +119,7 @@ switch ($val_upload){
                                             VALUES (?, ?, ?, ?)";
                                     $sth = $dbh->prepare($sql);
                                     
-                                    $res = $sth->execute(array($val_user,$val_title,date('y-m-d'),$path.$filename ));
+                                    $res = $sth->execute(array($val_user,$val_title,getcurrentdate(),$path.$filename ));
                                     if($res){
                                         $dbh->commit();
                                         $dbh = null;
@@ -174,7 +174,7 @@ switch ($val_upload){
                                 VALUES (?, ?, ?, ?)";
                         $sth = $dbh->prepare($sql);
                         
-                        $res = $sth->execute(array($val_user,$val_title,date('y-m-d'),$val_content ));
+                        $res = $sth->execute(array($val_user,$val_title,getcurrentdate(),$val_content ));
                         if($res){
                             $dbh->commit();
                             $dbh = null;

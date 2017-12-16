@@ -1,3 +1,12 @@
+<?php 
+include_once('functions/generalfunctions01.php');
+require_once 'creds/creds.php';
+require_once('dbconn.php');
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +25,18 @@
 
     <!-- Custom styles for this template -->
     <link href="css/general.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    
+
+    <link href="css/main2.css" rel="stylesheet">
+    
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>-->
+   
     
     <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
     
@@ -40,7 +61,7 @@
         </div>
         
         <?php
-        include_once('creds/creds.php');
+        
         session_start();
         
         
@@ -56,12 +77,7 @@
           </div>
       </nav><!--/.navbar-collapse -->
             
-            
-            
-            
-            
-            
-            
+
         <?php
         
         
@@ -104,20 +120,100 @@
         ?>
         </nav>    
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello Guys!</h1>
-        <p>This is this is me trying to test google map api for the first Time. Login or Sign up to Continue</p>
-        <p><a class="btn btn-primary btn-lg" id="bringsup" role="button">Sign Up &raquo;</a></p>
-      </div>
+       <div class="wrapper">
+    
+        <!-- Sidebar -->
+        <div class="sidebar-wrapper">
+            <ul class="sidebar-nav">
+        <?php
+            if(isset($_SESSION["activeuser"]) && ($_SESSION["activeuser"]!="")){
+        ?>
+            
+                <li class="sidebar-brand" >
+                    <a href="admin/index.php">Admin home</a>
+                </li>
+        <?php   }         ?>
+                <li class="sidebar-brand <?php 
+                if (isset($_REQUEST['p'])){
+                    if ($_REQUEST['p']=='dblog'){
+                    
+                    echo" active";
+                    }
+                    }?>
+                ">
+                    <a href="?p=dblog">
+                        Blogs
+                    </a>
+                </li>
+                <li class="sidebar-brand <?php 
+                if (isset($_REQUEST['p'])){
+                    if ($_REQUEST['p']=='dnews'){
+                    
+                    echo" active";
+                    }
+                    }?>
+                ">
+                    <a href="?p=dnews">
+                         Newsletters
+                    </a>
+                </li>
+                <li class="sidebar-brand  <?php 
+                if (isset($_REQUEST['p'])){
+                    if ($_REQUEST['p']=='dseminar'){
+                    
+                    echo" active";
+                    }
+                    }?>
+                ">
+                    <a href="?p=dseminar">Workshops</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+        <!-- /.sidebar-wrapper -->
+        
+         <!-- Page Content -->
+        <div class="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+
+                            <?php
+                            
+                            /**
+                             * @author Laleye Olamide
+                             * 
+                             * @copyright 2017
+                             */
+                            
+                            
+                             //var_dump($_REQUEST);
+                             $mapping = array(
+                                       'dblog'      => 'displayblogs',
+                                       'dnews'         => 'displaynews',
+                                       'dseminar'        => 'displayseminars',
+                                       
+                                       #....
+                                    );
+                                    
+                             $page = isset($_REQUEST['p']) ? $_REQUEST['p'] : 'displayblogs';
+                             $file = isset($mapping[$page]) ? $mapping[$page] : 'displayblogs';
+                         
+                             include($file.'.php');
+                             
+                            
+                            
+                            ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.page-content-wrapper -->
+        
     </div>
-
-    <div class="container" id="showsup">
-      
-
-      
-    </div> <!-- /container -->
+    <!-- /.wrapper -->
 
     </body>
           

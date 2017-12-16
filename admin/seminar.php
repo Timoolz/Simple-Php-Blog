@@ -32,7 +32,7 @@
                 <h3> Uploaded by
                   <?php    echo $_SESSION["activeuser"]; ?>
                   at   
-                  <?php      echo $currdate;  ?>
+                  <?php      echo date_convert($currdate);  ?>
                   
                   
                 </h3>
