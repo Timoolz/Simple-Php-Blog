@@ -54,6 +54,12 @@ $.noConflict();
         
         var ed = tinyMCE.get('tmc');
         var da = ed.getContent();   
+        //console.log(da);
+        da = da.replace(/"/g, " ' "); //getting rid of complex chracters that might break string
+        da = da.replace(/&/g, " ");
+        
+        //console.log(da);
+        //alert(da);
                     
     
         $.ajax({

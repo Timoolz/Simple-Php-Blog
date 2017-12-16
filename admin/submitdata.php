@@ -8,25 +8,24 @@ $val_date       = isset($_POST['date']) ? $_POST['date']: "";
 $val_user       = isset($_POST['user']) ? $_POST['user']: "";
 $val_title      = isset($_POST['title']) ? $_POST['title']: "";
 $val_content    = isset($_POST['content']) ? $_POST['content']: "";
-$val_tmccontent = isset($_POST['tmctext']) ? $_POST['tmctext']: "";
+$val_tmccontent = isset($_POST["tmctext"]) ? $_POST["tmctext"]: "";
 $val_FILE       = isset($_FILES['newsfile']) ? $_FILES['newsfile']: null;
 
 
-$val_FILE       = $_FILES['newsfile'];
-
+$val_content = ($val_content != "") ? $val_content : $val_tmccontent;
+//
 //var_dump($val_FILE);
 //var_dump($_POST);
 //var_dump($_FILES);
-
+//
 //var_dump($val_upload);
 //var_dump($val_date);
 //var_dump($val_user);
 //var_dump($val_title);
 //var_dump($val_content);
 //var_dump($val_tmccontent);
+//
 
-
-$val_content = ($val_content != "") ? $val_content : $val_tmccontent;
 
 //var_dump($val_content);
 

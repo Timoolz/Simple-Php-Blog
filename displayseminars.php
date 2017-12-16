@@ -52,7 +52,7 @@ if($ress == true){
                             <p class="timeline-event-thumbnail"><?php echo date_convert($seminardate); ?></p>
                             <!--<h3>Intern</h3>-->
                             <h4>Uploaded by  <?php echo $seminaruser; ?></h4>
-                            <form action="blogview.php" method="post">
+                            <form action="seminarview.php" method="post">
                             <input type="hidden" name="date" id="date" value="<?php echo date_convert($seminardate);; ?>"/>
                             <input type="hidden" name="title" id="title" value="<?php echo $seminartitle; ?>"/>
                             <input type="hidden" name="user" id="user" value="<?php echo $seminaruser; ?>"/>
